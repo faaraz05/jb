@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2B1D10"/>
+      <stop offset="50%" stop-color="#3D2917"/>
+      <stop offset="100%" stop-color="#1F140B"/>
+    </linearGradient>
+    <linearGradient id="goldFoil" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8A6428"/>
+      <stop offset="38%" stop-color="#D9B66A"/>
+      <stop offset="52%" stop-color="#F0D894"/>
+      <stop offset="74%" stop-color="#B8893A"/>
+      <stop offset="100%" stop-color="#8A6428"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#darkBg)"/>
+  
+  <!-- Outer Gold Frame -->
+  <rect x="30" y="30" width="1220" height="740" fill="none" stroke="url(#goldFoil)" stroke-width="2"/>
+  <rect x="42" y="42" width="1196" height="716" fill="none" stroke="#B8893A" stroke-width="1" stroke-dasharray="6 6" opacity="0.5"/>
+
+  <!-- Manufacturing Art Illustration -->
+  <g transform="translate(640, 360)">
+    <!-- Concentric timber rings representing Tree to Panel -->
+    <circle r="220" fill="none" stroke="#D9B66A" stroke-width="1" opacity="0.2"/>
+    <circle r="180" fill="none" stroke="#B8893A" stroke-width="1.5" opacity="0.3"/>
+    <circle r="140" fill="none" stroke="#D9B66A" stroke-width="1" stroke-dasharray="8 4" opacity="0.4"/>
+    <circle r="100" fill="none" stroke="#D9B66A" stroke-width="2" opacity="0.6"/>
+
+    <!-- Tree Symbol in Gold -->
+    <path d="M0 -75 L25 -30 L15 -30 L35 15 L20 15 L45 60 L-45 60 L-20 15 L-35 15 L-15 -30 L-25 -30 Z" fill="url(#goldFoil)"/>
+    <rect x="-6" y="60" width="12" height="24" fill="#B8893A"/>
+
+    <!-- Calibrated plies below tree -->
+    <g transform="translate(-180, 120)">
+      <rect x="0" y="0" width="360" height="12" rx="2" fill="#8C4A2F" stroke="#D9B66A" stroke-width="1"/>
+      <rect x="0" y="16" width="360" height="12" rx="2" fill="#B8893A" stroke="#D9B66A" stroke-width="1"/>
+      <rect x="0" y="32" width="360" height="12" rx="2" fill="#8C4A2F" stroke="#D9B66A" stroke-width="1"/>
+      <rect x="0" y="48" width="360" height="12" rx="2" fill="#5A3E26" stroke="#D9B66A" stroke-width="1"/>
+    </g>
+  </g>
+
+  <!-- Title & Branding -->
+  <text x="640" y="620" font-family="'Cinzel', serif" font-size="36" font-weight="600" fill="url(#goldFoil)" text-anchor="middle" letter-spacing="4">
+    JB TIMBER TECH SOLUTIONS
+  </text>
+  <text x="640" y="660" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-style="italic" fill="#E6D9BC" text-anchor="middle" letter-spacing="1">
+    From Tree to Calibrated Panel · Factory-Direct Precision
+  </text>
+</svg>
