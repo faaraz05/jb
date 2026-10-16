@@ -88,40 +88,7 @@ body {
   outline: none;
 }
 
-/* ─── Product card expand ────────────────────────────────────── */
-.product-card {
-  background: var(--surface);
-  border: 1px solid var(--surface-alt);
-  border-radius: 4px;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-}
-.product-card:hover,
-.product-card:focus-within,
-.product-card[data-open="true"] {
-  border-color: var(--gold);
-  box-shadow: 0 12px 32px -16px rgba(43, 29, 16, 0.35);
-  transform: translateY(-4px);
-}
-.product-details {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition:
-    grid-template-rows 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 0.35s;
-  opacity: 0;
-}
-.product-card:hover .product-details,
-.product-card:focus-within .product-details,
-.product-card[data-open="true"] .product-details {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-.product-details > div { overflow: hidden; }
 
-@media (prefers-reduced-motion: reduce) {
-  .product-details { transition: none; }
-  .product-card { transition: none; }
-}
 
 /* ─── Custom scrollbar ───────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }

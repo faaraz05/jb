@@ -20,9 +20,10 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact Us"
         tagline="Speak directly with the factory."
-        eyebrowColor="var(--gold-text)"
-        titleColor="var(--brown)"
-        taglineColor="var(--gold-text)"
+        eyebrowColor="rgb(0 0 0)"
+        titleColor="rgb(0 0 0)"
+        taglineColor="rgb(0 0 0)"
+        image='/images/about-us-page.jpeg'
       />
 
       {/* Form section */}

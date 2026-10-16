@@ -56,13 +56,13 @@ export default function PageHero({
               <source src={video} type="video/mp4" />
             </video>
             {/* Gradient overlay for readability and brand tone */}
-            <div
+            {/* <div
               className="absolute inset-0"
               style={{
                 background:
                   'linear-gradient(to right, rgba(245, 239, 224, 0.3) 0%, rgba(245, 239, 224, 0.3) 45%, rgba(245, 239, 224, 0.3) 100%)',
               }}
-            />
+            /> */}
           </div>
         ) : image ? (
           <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -74,13 +74,13 @@ export default function PageHero({
               priority
             />
             {/* Gradient overlay */}
-            <div
+            {/* <div
               className="absolute inset-0"
               style={{
                 background:
                   'linear-gradient(to right, rgba(245, 239, 224, 0.94) 0%, rgba(245, 239, 224, 0.88) 45%, rgba(245, 239, 224, 0.65) 100%)',
               }}
-            />
+            /> */}
           </div>
         ) : null}
       </div>

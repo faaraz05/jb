@@ -141,7 +141,7 @@ export default function AboutPage() {
               }}
             >
               <Image
-                src="/images/Process.webp"
+                src="/images/plywood-stack-about.jpeg"
                 alt="JB Timber Tech manufacturing process"
                 fill
                 className="object-cover"

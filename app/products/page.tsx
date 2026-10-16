@@ -16,9 +16,10 @@ export default function ProductsPage() {
         eyebrow="Our Range"
         title="Product Catalogue"
         tagline="Manufacturer Precision. Uncompromising Architectural Luxury."
-        eyebrowColor="var(--gold-text)"
-        titleColor="var(--brown)"
-        taglineColor="var(--gold-text)"
+        eyebrowColor="rgb(0 0 0)"
+        titleColor="rgb(0 0 0)"
+        taglineColor="rgb(0 0 0)"
+        image='/images/Plywood-product-page.jpeg'
       />
       <ProductCatalogue />
       <CtaBanner
