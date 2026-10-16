@@ -139,7 +139,7 @@ export const products: Product[] = [
     slug: 'film-faced-shuttering',
     name: 'Film Faced Plywood (Shuttering)',
     category: 'film-faced',
-    image: '/images/products/film-faced.jpg',
+    image: '/images/products/fIlm-faced.jpg',
     featured: true,
     size: '8 ft × 4 ft (2440 × 1220 mm)',
     face: 'Phenolic film',
