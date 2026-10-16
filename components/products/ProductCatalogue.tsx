@@ -21,7 +21,7 @@ export default function ProductCatalogue() {
   const filtered = active === ALL ? products : products.filter((p) => p.category === active);
 
   return (
-    <section className="py-24 px-6 max-w-[1240px] mx-auto">
+    <section className="py-12 px-6 max-w-[1240px] mx-auto">
       {/* Filter chips */}
       <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter products by category">
         {filters.map(({ label, value }) => {

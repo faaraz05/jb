@@ -33,7 +33,7 @@ export default function SectionHeading({
         <h2
           className="font-display font-semibold leading-[1.15] tracking-[0.04em]"
           style={{
-            fontSize: 'clamp(28px, 4vw, 44px)',
+            fontSize: 'clamp(24px, 4vw, 44px)',
             color: dark ? 'var(--bg)' : 'var(--brown)',
           }}
         >

@@ -41,6 +41,8 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
   href?: string
+  target?: string
+  rel?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -50,6 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <Link
           href={href}
           className={cn(buttonVariants({ variant, size, className }))}
+          {...(props as any)}
         >
           {children}
         </Link>

@@ -4,13 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { NAV_LINKS } from '@/data/site';
+import { NAV_LINKS, SITE } from '@/data/site';
 import Button from '@/components/ui/button';
 
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const phone = SITE.phone.replace(/[^0-9]/g, '');
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&chat_id=${phone}&is_mobile=0`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -87,8 +90,22 @@ export default function Header() {
 
         {/* Right side: Get a Quote + mobile toggle */}
         <div className="flex items-center gap-2">
-          <Button href="/contact" variant="primary" className="hidden md:inline-flex !h-9 !px-5 !text-xs">
-            Get a Quote
+          <Button
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            className="hidden md:inline-flex items-center gap-1.5 !h-9 !px-3.5 !text-xs font-semibold"
+          >
+            <Image
+              src="/logos/whatsapp-white-logo.svg"
+              alt=""
+              width={16}
+              height={16}
+              className="w-4 h-4 shrink-0"
+              aria-hidden="true"
+            />
+            <span style={{ color: '#fff' }}>Get a Quote</span>
           </Button>
 
           {/* Mobile hamburger */}
@@ -127,8 +144,22 @@ export default function Header() {
               );
             })}
             <li className="p-4">
-              <Button href="/contact" variant="primary" className="w-full justify-center">
-                Get a Quote
+              <Button
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                className="w-full justify-center items-center gap-2"
+              >
+                <Image
+                  src="/logos/whatsapp-white-logo.svg"
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 shrink-0"
+                  aria-hidden="true"
+                />
+                <span style={{ color: '#fff' }}>Get a Quote</span>
               </Button>
             </li>
           </ul>

@@ -65,7 +65,7 @@ export async function POST(req: Request) {
     `Name:     ${fullName}`,
     `Phone:    ${phone}`,
     `Email:    ${email}`,
-    `Address:  ${address}`,
+    `Message:  ${address}`,
     `Products: ${products.join(', ')}`,
     `─────────────────────────────`,
     `Sent via jbtimbertech.com contact form`,
