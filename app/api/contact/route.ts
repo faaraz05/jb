@@ -71,9 +71,12 @@ export async function POST(req: Request) {
     `Sent via jbtimbertech.com contact form`,
   ].join('\n');
 
+  const fromAddress = process.env.CONTACT_FROM_EMAIL?.includes('<')
+    ? process.env.CONTACT_FROM_EMAIL
+    : `JB Timber Tech <${process.env.CONTACT_FROM_EMAIL || 'onboarding@resend.dev'}>`;
+
   const { error } = await resend.emails.send({
-    from: email,
-    // from: process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev',
+    from: fromAddress,
     to: process.env.CONTACT_TO_EMAIL ?? 'jbtimbertech@gmail.com',
     replyTo: email,
     subject: `New enquiry — ${fullName} (${products.length} product${products.length > 1 ? 's' : ''})`,
