@@ -63,13 +63,13 @@ export default function WhoWeAre() {
               </p>
             </FadeIn>
 
-            <FadeIn delay={160}>
+            {/* <FadeIn delay={160}>
               <p className="text-base leading-relaxed" style={{ color: 'var(--ink)' }}>
                 We do not just supply sheets; we power wholesale distribution networks and
                 enterprise-scale projects across Southern India with dependable volume, ex-factory
                 rates, and unwavering structural reliability.
               </p>
-            </FadeIn>
+            </FadeIn> */}
 
             {/* Pillars */}
             <div className="flex flex-col gap-4 mt-2">
