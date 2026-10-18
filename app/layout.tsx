@@ -28,15 +28,21 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jbtimbertech.in"),
   title: {
     default: 'JB Timber Tech Solutions — Premium Plywood Manufacturer',
     template: '%s | JB Timber Tech Solutions',
   },
   description:
     'Factory-direct plywood manufacturer for wholesale distributors across Tamil Nadu and Kerala. Premium, ISI-grade panels built for performance and luxury.',
-  keywords: ['plywood manufacturer', 'wholesale plywood', 'ISI plywood', 'Tamil Nadu', 'Kerala', 'Gurjan plywood', 'shuttering ply'],
+  keywords: ['jb timber tech,jb timber tech solutions,plywood manufacturer', 'wholesale plywood', 'ISI plywood', 'Tamil Nadu', 'Kerala', 'Gurjan plywood', 'shuttering ply'],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: 'JB Timber Tech Solutions Pvt Ltd',
+    url: "https://jbtimbertech.in",
+    siteName: "JB Timbertech",
+    title: "JB Timbertech | Timber & Wood Products",
     description: 'Engineered for Strength. Rooted in Luxury. Factory-direct plywood for wholesale distributors.',
     type: 'website',
     locale: 'en_IN',
