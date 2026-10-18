@@ -19,12 +19,9 @@
 
 // export default nextConfig;
 
-
-
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  partialPrefetching: true,
   turbopack: {
     rules: {
       '*.css': {
@@ -40,3 +37,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
