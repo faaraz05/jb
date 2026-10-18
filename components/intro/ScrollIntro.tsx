@@ -212,7 +212,7 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
         />
 
         {/* Brand logo in bottom-right corner with smooth reveal fade */}
-        <div
+        {/* <div
           className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-8 z-20 flex items-center gap-2 sm:gap-2.5 pointer-events-none select-none transition-opacity duration-700 ease-out"
           style={{ opacity: imagesOk ? 0.9 : 0 }}
           aria-hidden="true"
@@ -238,7 +238,7 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
               Solutions
             </span>
           </div>
-        </div>
+        </div> */}
 
         {/* Animated scroll down indicator */}
         <motion.div

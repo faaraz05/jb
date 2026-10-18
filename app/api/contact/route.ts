@@ -72,7 +72,8 @@ export async function POST(req: Request) {
   ].join('\n');
 
   const { error } = await resend.emails.send({
-    from: process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev',
+    from: email,
+    // from: process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev',
     to: process.env.CONTACT_TO_EMAIL ?? 'jbtimbertech@gmail.com',
     replyTo: email,
     subject: `New enquiry — ${fullName} (${products.length} product${products.length > 1 ? 's' : ''})`,

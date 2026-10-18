@@ -101,7 +101,7 @@ export default function PageHero({
           <FadeIn delay={80}>
             <h1
               className="font-display font-semibold tracking-[0.04em] leading-[1.05] mb-6"
-              style={{ fontSize: 'clamp(36px, 5vw, 64px)', color: titleColor }}
+              style={{ fontSize: 'clamp(25px, 5vw, 64px)', color: titleColor }}
             >
               {title}
             </h1>
@@ -110,7 +110,7 @@ export default function PageHero({
             <FadeIn delay={160}>
               <p
                 className="font-accent italic leading-[1.3]"
-                style={{ fontSize: 'clamp(20px, 2.4vw, 28px)', color: taglineColor }}
+                style={{ fontSize: 'clamp(18px, 2.4vw, 28px)', color: taglineColor }}
               >
                 {tagline}
               </p>
