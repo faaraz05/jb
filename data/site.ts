@@ -8,7 +8,7 @@ export const SITE = {
   taglineAlt2: 'Manufacturer Precision. Uncompromising Architectural Luxury.',
   phone: '+91 8086605556',
   email: 'jbtimbertech@gmail.com',
-  address: '[Factory Address — to be confirmed by client]',
+  address: 'Karukankattupudur, Tirupur, Perumanallur, Coimbatore-641666',
   workingHours: 'Mon – Sat, 9:00 AM – 6:00 PM',
   region: 'Tamil Nadu & Kerala',
   // Set to true to display prices on product cards

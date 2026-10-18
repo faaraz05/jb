@@ -12,16 +12,16 @@ export type Owner = {
 export const owners: Owner[] = [
   {
     id: 'managing-director',
-    name: '[Owner Name]',
+    name: 'Jithinshah Azeez',
     designation: 'Managing Director',
-    image: '/images/owners/owner-1.svg',
+    image: '/images/owners/Jithinshah.jpeg',
     bio: 'Leading JB Timber Tech with a vision for factory-direct excellence across Southern India.',
   },
   {
     id: 'director-operations',
-    name: '[Owner Name]',
+    name: 'Muhammed Bilal',
     designation: 'Director — Operations',
-    image: '/images/owners/owner-2.svg',
+    image: '/images/owners/bilal.jpeg',
     bio: 'Overseeing manufacturing quality and wholesale supply chain operations.',
   },
 ];

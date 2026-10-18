@@ -53,7 +53,7 @@ export default function Header() {
             priority
           />
           <span
-            className="font-display font-semibold tracking-[0.06em] text-sm leading-tight hidden sm:block"
+            className="font-display font-semibold tracking-[0.06em] text-sm leading-tight"
             style={{ color: 'var(--brown)' }}
           >
             JB TIMBER TECH

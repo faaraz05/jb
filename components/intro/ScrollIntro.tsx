@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
 import {
+  motion,
   useScroll,
   useTransform,
   useSpring,
@@ -15,9 +16,8 @@ import {
 } from '@/components/intro/Preloader';
 
 /* ── Constants ────────────────────────────────────────────────── */
-const FRAME_BG = '#F0EDDA';
+const FRAME_BG = '#efecd9';
 const ASPECT = 16 / 9;
-const SCALE = 0.7; // 30% reduction in visible image dimensions (70% size)
 
 /* ── Props ────────────────────────────────────────────────────── */
 interface ScrollIntroProps {
@@ -39,7 +39,7 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
   const prefersReducedMotion = useReducedMotion();
 
   /* ── Scroll tracking ───────────────────────────────────────── */
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress, scrollY } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
@@ -50,12 +50,18 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
     mass: 0.4,
   });
 
-  // Map 0→0.85 of scroll to frames 0→119, then hold frame 119 from 0.85→1
+  // Map 0→0.90 of scroll to frames 0→119, then hold frame 119 steadily from 0.90→1
   const frameIndex = useTransform(
     smoothProgress,
-    [0, 0.85, 1],
+    [0, 0.90, 1],
     [0, INTRO_TOTAL_FRAMES - 1, INTRO_TOTAL_FRAMES - 1]
   );
+
+  // Fades out smoothly within the first 120px of scroll
+  const scrollCueOpacity = useTransform(scrollY, [0, 120], [1, 0]);
+
+  // Only fade in bottom gradient when smoothly transitioning to HeroHome at sequence completion
+  const bottomFadeOpacity = useTransform(scrollYProgress, [0.88, 0.98], [0, 1]);
 
   /* ── Drawing helpers ───────────────────────────────────────── */
   const drawFrame = useCallback((index: number) => {
@@ -80,16 +86,17 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
     ctx.fillStyle = FRAME_BG;
     ctx.fillRect(0, 0, w, h);
 
-    // Contain-fit calculation with 30% size reduction (70% scale)
+    // Contain-fit calculation with responsive scaling: 0.5 above 768px, 1.0 under 768px
+    const scale = w >= 768 ? 0.5 : 1.0;
     const canvasAspect = w / h;
     let dw: number;
     let dh: number;
 
     if (canvasAspect > ASPECT) {
-      dh = h * SCALE;
+      dh = h * scale;
       dw = dh * ASPECT;
     } else {
-      dw = w * SCALE;
+      dw = w * scale;
       dh = dw / ASPECT;
     }
 
@@ -233,8 +240,45 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
           </div>
         </div>
 
-        {/* Bottom gradient blending into existing --bg (#F5EFE0) */}
-        <div className="intro-bottom-fade" aria-hidden="true" />
+        {/* Animated scroll down indicator */}
+        <motion.div
+          style={{ opacity: scrollCueOpacity }}
+          className="absolute bottom-40 sm:bottom-40 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <span
+            className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.25em]"
+            style={{
+              color: 'var(--brown, #5A3E26)',
+              textShadow: '0 1px 3px rgba(239, 236, 217, 0.9)',
+            }}
+          >
+            Scroll to explore
+          </span>
+          <div
+            className="w-5 h-9 rounded-full flex justify-center pt-1.5"
+            style={{
+              border: '2px solid var(--gold, #B8893A)',
+              background: 'rgba(239, 236, 217, 0.85)',
+              backdropFilter: 'blur(6px)',
+              boxShadow: '0 4px 14px rgba(43,29,16,0.12)',
+            }}
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0], opacity: [1, 0.3, 1] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: 'var(--gold, #B8893A)' }}
+            />
+          </div>
+        </motion.div>
+
+        {/* Bottom gradient blending into existing --bg (#F5EFE0) near sequence completion */}
+        <motion.div
+          className="intro-bottom-fade"
+          style={{ opacity: bottomFadeOpacity }}
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

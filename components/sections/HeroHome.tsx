@@ -1,14 +1,39 @@
+'use client';
+
+import { useRef } from 'react';
 import Link from 'next/link';
 import Button from '@/components/ui/button';
 import FadeIn from '@/components/ui/FadeIn';
 import TiltedCard from '@/components/ui/TiltedCard';
 import { ArrowRight } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 export default function HeroHome() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  // Track the entry of HeroHome as it reaches the viewport
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'start start'],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 28,
+    mass: 0.35,
+  });
+
+  // Dramatic, seamless slide up into the whole viewport
+  const y = useTransform(smoothProgress, [0, 1], ['45vh', '0vh']);
+  const opacity = useTransform(smoothProgress, [0, 0.35, 1], [0.25, 0.85, 1]);
+  const scale = useTransform(smoothProgress, [0, 1], [0.95, 1]);
+
   return (
-    <section
-      className="relative min-h-[88vh] flex items-center py-16 px-6"
-      style={{ background: 'var(--bg)' }}
+    <motion.section
+      ref={containerRef}
+      id="hero"
+      style={{ y, opacity, scale, background: 'var(--bg)' }}
+      className="relative z-20 min-h-screen flex items-center py-16 px-6 shadow-[0_-24px_48px_-12px_rgba(43,29,16,0.15)] origin-bottom"
     >
       {/* Gold double frame */}
       <div
@@ -118,7 +143,7 @@ export default function HeroHome() {
           </FadeIn>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

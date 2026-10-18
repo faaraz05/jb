@@ -31,7 +31,7 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
-  const [selectedProducts, setSelectedProducts] = useState<string[]>(
+  const [selectedProducts, setSelectedProducts] = useState<string[]>(() =>
     preSelected ? [preSelected] : [],
   );
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -64,12 +64,10 @@ export default function ContactForm() {
     };
   }, []);
 
-  // Pre-tick product from URL
+  // Sync pre-selected product whenever the URL param changes (e.g. navigating from a product card)
   useEffect(() => {
-    if (preSelected && !selectedProducts.includes(preSelected)) {
-      setSelectedProducts([preSelected]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!preSelected) return;
+    setSelectedProducts([preSelected]);
   }, [preSelected]);
 
   const toggleProduct = (slug: string) => {

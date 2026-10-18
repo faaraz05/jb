@@ -172,6 +172,7 @@ export default function FlipCard({
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if (disabled || e.button !== 0 || grip.current) return;
+    if ((e.target as HTMLElement)?.closest('a, button')) return;
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
     } catch {}
@@ -230,6 +231,7 @@ export default function FlipCard({
     setDragging(false);
     if (e.pointerType === 'touch' || !rootRef.current?.matches(':hover')) rest();
     if (!g.moved) {
+      if ((e.target as HTMLElement)?.closest('a, button')) return;
       if (!cancelled && flipOnClick) {
         flip(false);
       } else {
@@ -255,6 +257,7 @@ export default function FlipCard({
   };
 
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement)?.closest('a, button')) return;
     if (!disabled && e.detail === 0) flip(true);
   };
 

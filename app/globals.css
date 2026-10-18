@@ -195,13 +195,13 @@ input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; c
 .intro-container {
   position: relative;
   width: 100%;
-  height: 300vh;
+  height: 280vh;
 }
 @media (min-width: 640px) {
-  .intro-container { height: 350vh; }
+  .intro-container { height: 320vh; }
 }
 @media (min-width: 1024px) {
-  .intro-container { height: 400vh; }
+  .intro-container { height: 350vh; }
 }
 .intro-container--static {
   height: auto;
@@ -212,6 +212,7 @@ input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; c
 .intro-sticky {
   position: sticky;
   top: 0;
+  z-index: 10;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -370,3 +371,26 @@ input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; c
 @media (prefers-reduced-motion: reduce) {
   .intro-container { height: auto !important; min-height: 100vh; }
 }
+
+/* ── Lenis Smooth Scrolling ────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+

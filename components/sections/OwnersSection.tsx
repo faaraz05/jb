@@ -24,7 +24,7 @@ function OwnerCard({ owner }: { owner: Owner }) {
           src={owner.image}
           alt={owner.name}
           fill
-          className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+          className="object-cover"
           sizes="200px"
         />
       </div>

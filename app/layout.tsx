@@ -3,6 +3,7 @@ import { Cinzel, Cormorant_Garamond, Jost } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import SmoothScroll from '@/components/providers/SmoothScroll';
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${cinzel.variable} ${cormorant.variable} ${jost.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <SmoothScroll />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
