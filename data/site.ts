@@ -10,7 +10,7 @@ export const SITE = {
   email: 'jbtimbertech@gmail.com',
   address: 'Karukankattupudur, Tirupur, Perumanallur, Coimbatore-641666',
   workingHours: 'Mon – Sat, 9:00 AM – 6:00 PM',
-  region: 'Tamil Nadu & Kerala',
+  region: 'Tamil Nadu, Kerala, Karnataka & Pune',
   // Set to true to display prices on product cards
   SHOW_PRICES: false,
   // Google Maps embed URL — to be confirmed by client

@@ -39,7 +39,7 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
   const prefersReducedMotion = useReducedMotion();
 
   /* ── Scroll tracking ───────────────────────────────────────── */
-  const { scrollYProgress, scrollY } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
@@ -57,8 +57,8 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
     [0, INTRO_TOTAL_FRAMES - 1, INTRO_TOTAL_FRAMES - 1]
   );
 
-  // Fades out smoothly within the first 120px of scroll
-  const scrollCueOpacity = useTransform(scrollY, [0, 120], [1, 0]);
+  // Animated scroll down indicator remains visible throughout the scroll sequence and fades out as it completes
+  const scrollCueOpacity = useTransform(scrollYProgress, [0, 0.90, 1], [1, 1, 1]);
 
   // Only fade in bottom gradient when smoothly transitioning to HeroHome at sequence completion
   const bottomFadeOpacity = useTransform(scrollYProgress, [0.88, 0.98], [0, 1]);
@@ -242,7 +242,7 @@ export default function ScrollIntro({ ready }: ScrollIntroProps) {
 
         {/* Animated scroll down indicator */}
         <motion.div
-          style={{ opacity: scrollCueOpacity }}
+          style={{ opacity: prefersReducedMotion ? 0 : scrollCueOpacity }}
           className="absolute bottom-40 sm:bottom-40 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none select-none"
           aria-hidden="true"
         >

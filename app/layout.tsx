@@ -47,11 +47,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
   },
-  icons: {
-    icon: '/jb_golden_tree.svg',
-    shortcut: '/jb_golden_tree.svg',
-    apple: '/jb_golden_tree.svg',
-  },
+icons: {
+  icon: [
+    { url: '/favicon.ico', sizes: 'any' },
+    { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+  ],
+  shortcut: '/favicon.ico',
+  apple: '/apple-touch-icon.png',
+},
 };
 
 import { SITE } from '@/data/site';
